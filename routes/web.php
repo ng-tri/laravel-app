@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,8 +10,9 @@ Route::get('/', function () {
 
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin',
-    'namespace' => 'App\Http\Controllers\Admin'
+    'as' => 'admin.',
 ], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('users', UserController::class);
 });

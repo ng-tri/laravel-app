@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('title', 'AdminLTE 3 | Dashboard')
+
 @section('content')
     <section class="content">
         <div class="container-fluid">
@@ -797,4 +799,9 @@
             <!-- /.row -->
         </div><!--/. container-fluid -->
     </section>
+@endsection
+
+@section('scripts')
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/dist/js/pages/dashboard2.js"></script>
 @endsection
