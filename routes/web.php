@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('demo', function () {
+    return view('demo');
+});
+
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
