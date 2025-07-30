@@ -18,7 +18,7 @@
             <h3 class="card-title">Danh sách người dùng</h3>
             <div class="card-tools">
                 <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-sm">
-                    <i class="fas fa-user-plus"></i> Thêm mới
+                    <i class="fas fa-plus"></i> Thêm mới
                 </a>
             </div>
         </div>

@@ -64,6 +64,24 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.users.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Users Manager</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.customers.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file-invoice"></i>
+                        <p>Customers List</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.products.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tag"></i>
+                        <p>Products List</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>

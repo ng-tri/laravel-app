@@ -21,7 +21,7 @@
             <h3 class="card-title">Danh sách sản phẩm</h3>
             <div class="card-tools">
                 <a href="{{ route('admin.products.create') }}" class="btn btn-primary btn-sm">
-                    <i class="fas fa-plus"></i> Thêm sản phẩm
+                    <i class="fas fa-plus"></i> Thêm mới
                 </a>
             </div>
         </div>
