@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Customer\CustomerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\User\UserController;
@@ -16,6 +17,8 @@ Route::group([
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('users', UserController::class);
+
+    Route::resource('customers', CustomerController::class);
 
     Route::resource('products', ProductController::class);
 });
