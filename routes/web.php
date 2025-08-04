@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Customer\CustomerController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Order\OrderController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,8 @@ Route::group([
     Route::resource('customers', CustomerController::class);
 
     Route::resource('products', ProductController::class);
+
+    Route::resource('orders', OrderController::class)->only([
+        'index', 'edit', 'update', 'destroy'
+    ]);
 });

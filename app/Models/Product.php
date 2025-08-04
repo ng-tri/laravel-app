@@ -27,4 +27,11 @@ class Product extends Model
     {
         return $query->where('is_active', true);
     }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_products')
+            ->withPivot('quantity', 'price', 'total')
+            ->withTimestamps();
+    }
 }
