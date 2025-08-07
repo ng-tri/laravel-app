@@ -21,6 +21,17 @@ enum OrderStatus: int
         };
     }
 
+    public function color(): string
+    {
+        return match($this) {
+            self::Pending => 'gray',
+            self::Paid => 'blue',
+            self::Shipped => 'orange',
+            self::Completed => 'green',
+            self::Cancelled => 'red',
+        };
+    }
+
     public static function options(): array
     {
         return collect(self::cases())->mapWithKeys(function ($case) {

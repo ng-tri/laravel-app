@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\User;
+use App\Services\OrderService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -27,28 +28,25 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::withoutTrashed()->get();
         return view('admin.orders.index', compact('orders'));
     }
 
-    public function create()
+    public function create(OrderService $orderService)
     {
-        return view('admin.orders.create');
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-        ]);
+        $orderCode = $orderService->generateOrderCode();
 
         Order::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'stock' => $request->input('stock'),
-            'is_active' => $request->input('is_active'),
+            'order_code' => $orderCode,
+            'user_id' => 1,
+            'customer_id' => 1,
+            'recipient_name' => 'Nam',
+            'recipient_phone' => '0909123409',
+            'total_amount' => '134000',
+            'note' => 'no ship',
+            'shipping_note' => 'no call',
+            'shipping_address' => 'Hẻm 43, Đường số 9, Khu phố Tam Đa',
+            'ordered_at' => now()
         ]);
 
         return redirect()->route('admin.orders.index')->with('success', 'Order created successfully.');

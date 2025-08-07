@@ -14,6 +14,22 @@ class Order extends Model
         'status' => OrderStatus::class,
     ];
 
+    protected array $dates = ['ordered_at'];
+
+    protected $fillable = [
+        'order_code',
+        'user_id',
+        'customer_id',
+        'recipient_name',
+        'recipient_phone',
+        'total_amount',
+        'order_source',
+        'note',
+        'shipping_note',
+        'shipping_address',
+        'ordered_at',
+    ];
+
     public function products()
     {
         return $this->belongsToMany(Product::class, 'order_products')
